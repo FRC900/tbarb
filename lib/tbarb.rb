@@ -183,6 +183,14 @@ class TBA
         end
     end
 
+    def match_zebra_motionworks(key=nil, year=nil, event=nil, type="qm", number=nil, round=nil)
+        if key
+            get("match/#{key}#{"/zebra_motionworks"}")
+        else
+            get("match/#{event[0].isDigit() ? "" : year}#{event}_#{type}#{number}#{type == "qm" ? "" : "m#{round}"}#{"/zebra_motionworks"}")
+        end
+    end
+
     def districts(year)
         get("districts/#{year}")
     end
